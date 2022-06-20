@@ -1,0 +1,214 @@
+@charset "UTF-8";
+<style>
+        * {margin: 0; padding: 0;}
+        a {text-decoration: none; color: black;}
+        ul { list-style: none;}
+
+
+        /* 헤더 시작 */
+        .header_wrap{
+        clear: both;
+        }
+        .header_top {
+            background-image: url(./img/top_banner_bg.jpg);
+        }
+        .header_top h1{
+            text-align: center;
+            color: white;
+        }
+        .util_menu{
+            width: 1440px;
+            margin: 0 auto;
+        }
+        .util_menu li{
+            float: right;
+            margin: 0 10px;
+        }
+        .util_menu li::before{
+                margin-right: 1em;
+                content: "|";
+        }
+        .util_menu li:last-child:before{
+            margin: 0;
+            display: none;
+        }
+        .header_bottom{
+            width: 1440px;
+            margin: 0 auto;
+            clear: both;
+        }
+        .header_bottom .logo{
+            float: left;
+            width: 200px;
+            height: 40px;
+        }
+        .header_bottom .logo img{
+            display: block;
+            width: 100%;
+        }
+        .header_bottom ul{
+            float: left;
+            width: 120px;
+            line-height: 2em;
+            margin-left: 50px;
+            font-size: 20px;
+        }
+        .header_bottom ul:hover .submenu{
+            display: block;
+        }
+        .header_bottom ul li{
+            font-size: 15px;
+
+        }
+        .submenu{
+            z-index: 999;
+            position: absolute;
+            left: -75px;
+            width: 200px; 
+            border: 1px solid #000;
+            border-top: 0;
+            background-color: aqua;
+            display:none;
+            text-align: center;
+        }
+        .submenu_wrap{
+            position: relative;
+        }
+        /* 헤더 끝 */
+
+
+        /* 메인 시작 */
+        #ct{
+            clear: both;
+            width: 100%;
+        }
+
+        .ct_wrap {
+            clear: both;
+        
+        }
+        /* 이미지 슬라이드 구간 */
+        
+        /* 이미지 슬라이드 구간 */     
+        .main_customer {
+            clear: both;
+            width: 1440px;
+            margin: 0 auto;
+            padding-top : 95px;
+            padding-bottom: 50px;
+        }
+        .info {
+            float: left;
+        }
+        .info h2{
+            font-size: 60px;
+            padding-bottom: 10px;
+            color: #39579b;
+        }
+        .info .txt {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        dl, dt, dd {
+            padding: 0;
+            margin: 0;
+            line-height: 1.4;
+        }
+        dl {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            width: 700px;
+        }
+        dt {
+            clear: left;
+            float: left;
+            display: block;
+            margin: 0 0 1px;
+            color: #39579b;
+            font-size: 20px;
+        }
+        dd {
+            padding: 0 0 0 100px;
+            padding-top: 10px;
+            padding-left: 120px;
+            margin: 0 0 1px;
+            width: 100%;   
+            font-size: 20px;
+            
+        }
+
+        .p_color1 {
+            color: red;
+        }
+        .p_color2 {
+            color : #3d5bbb;
+        }
+
+        
+        dd::after {
+            content: ""; display: table; clear: both;
+        }
+         .dl_style1 .icon > img {
+            float: left;
+        }
+        
+        .location {
+            float: right;
+        }
+
+        
+        
+
+
+        /* 푸터 시작 */
+        .footer_wrap {
+             clear: both;
+             width: 1440px;
+             margin: 0 auto;
+             padding-top: 30px;
+             padding-bottom: 20px;
+        }
+
+        .ft_bind {
+            border-top: 1px solid black;
+            position: relative;
+         }
+
+        .footer_top {
+            padding-bottom: 50px;
+                       
+        }
+        .footer_bottom {
+            float: left;
+            padding-top: 30px;
+        }
+
+        .footer_info {
+            padding-top: 30px;
+            margin-left: 200px;
+        }
+
+        .footer_info > .nav1 {
+             float: left;
+             padding-right: 20px;
+        }
+
+        #top_btn {
+            position: absolute;
+            right: 0;
+            top: 0.2rem;
+        }
+
+        .xi-youtube-play:hover {
+            color: red;
+        }
+        .xi-instagram:hover {
+            color: #3f729b;
+        }
+        .xi-kakaotalk:hover {
+            color: #f9e000;
+        }
+        .xi-message:hover {
+            color: green;
+        }
+            /* 푸터 끝 */

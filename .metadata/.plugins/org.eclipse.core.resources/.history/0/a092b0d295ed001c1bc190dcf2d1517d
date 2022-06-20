@@ -1,0 +1,38 @@
+package com.okhospital.dao;
+
+import java.util.List;
+
+import com.okhospital.dto.BoardDTO;
+
+public class BoardDAOImpl implements BoardDAO {
+
+	// 추상 클래스 상속(implements) 후 오버라이딩
+	
+	@Override
+	public List<BoardDTO> boardList() throws Exception {
+		return null;
+	}
+
+	@Override
+	public BoardDTO boardRead(int seq) throws Exception {
+		return null;
+	}
+
+	@Override
+	public void boardWrite(BoardDTO dto) throws Exception {
+		
+	}
+
+	@Override
+	public void boardUpdate(BoardDTO dto) throws Exception {
+		
+	}
+
+	@Override
+	public void boardDelete(int seq) throws Exception {
+		
+	}
+	
+	
+	
+}

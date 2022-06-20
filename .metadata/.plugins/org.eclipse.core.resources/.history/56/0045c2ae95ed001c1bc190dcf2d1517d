@@ -1,0 +1,5 @@
+package com.okhospital.dao;
+
+public class BoardDAOImpl {
+
+}

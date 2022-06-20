@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<!--  namespace, id 중복x -->
+<mapper namespace="member">
+	<!-- 회원 목록 불러오기 : dao에서 selectList("member.memberList") -->
+	<select id="memberList" resultType="com.okhospital.dto.MemberDTO">
+		select * from member
+	</select>
+	
+	<!-- 회원 정보 보기 : dao에서 selectOne("member.viewMember", userid) -->
+	
+	
+	<!-- 회원 가입 : dao에서 insert("member.insertMember", mdto) -->
+	
+	
+	<!-- 회원 정보 변경 : dao에서 update("member.updateMember", mdto) -->
+	
+	
+	<!-- 회원 탈퇴 : dao에서 delete("member.deleteMember", userid) -->
+	
+	
+	<!-- 로그인 : dao에서 selectOne("member.loginCheck", mdto) -->
+	
+	
+	<!-- 아이디 존재 유무 체크 : selectOne("member.idCheck", userid)-->
+	
+</mapper>

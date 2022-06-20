@@ -1,0 +1,51 @@
+package com.okhospital.contrller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.okhospital.dto.BoardDTO;
+import com.okhospital.service.BoardService;
+
+@Controller
+@RequestMapping("/board/*")
+public class HomeController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	// 다음 서비스 작업 객체를 주입
+	@Autowired
+	BoardService boardService;
+	
+	@RequestMapping("list.do")
+	public String boardList(Model model) throws Exception {
+		List<BoardDTO> boardList = boardService.boardList();
+		model.addAttribute("boardList", boardList);
+		return "board/boardList";
+	}
+	
+	// 구형 ModelAndView 방식
+	public ModelAndView boardList() throws Exception {
+		List<BoardDTO> boardList = boardService.boardList();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("board/boardList");
+		mav.addObject("boardList", boardList);
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

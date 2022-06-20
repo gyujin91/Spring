@@ -1,0 +1,62 @@
+package com.okhospital.controller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.okhospital.dto.MemberDTO;
+import com.okhospital.service.MemberService;
+
+@Controller
+public class memberController {
+	private static final Logger logger = LoggerFactory.getLogger(memberController.class);
+	
+	// 객체 주입
+	@Autowired
+	MemberService memberService;
+	
+	// 회원 목록 보기
+	@RequestMapping("list.do")
+	public String memberList(Model model) throws Exception {	
+		List<MemberDTO> memberList = memberService.memberList();
+		model.addAttribute("memberList",memberList);
+		return "member/memberList";
+	}
+	
+	// 회원 정보 상세 보기
+	@RequestMapping(value = "read.do", method = RequestMethod.GET)
+	public String memberRead(@RequestParam String userid, Model model) throws Exception {
+		MemberDTO member = new MemberDTO();
+		model.addAttribute("member", member);
+		return "member/memberRead";
+		
+	}
+	
+	// 회원 가입
+	@RequestMapping(value = "join.do", method = RequestMethod.POST)
+	public String join(MemberDTO dto, Model model) throws Exception {
+		return null;
+		
+	}
+	
+	// 회원 정보 변경
+	
+	// 회원 탈퇴
+	
+	// 로그인
+	
+	// 아이디 중복 체크
+	
+	// 로그 아웃
+	
+	
+	
+	
+}
