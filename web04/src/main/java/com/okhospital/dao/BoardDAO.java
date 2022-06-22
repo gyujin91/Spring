@@ -4,11 +4,9 @@ import java.util.List;
 
 import com.okhospital.dto.BoardDTO;
 
-
 public interface BoardDAO {
-	
 	// 글 목록
-	public List<BoardDTO> boardList() throws Exception; 
+	public List<BoardDTO> boardList() throws Exception;
 	
 	// 글 상세보기
 	public BoardDTO boardRead(int seq) throws Exception;

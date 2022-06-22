@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,15 +16,13 @@
     <meta property="og:title" content="제목">
     <meta property="og:description" content="설명">
     <meta property="og:image" content="로고주소">
-	<title></title>
+	<title>메인 페이지</title>
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/xpressengine/xeicon@2.3.1/xeicon.min.css">
-	<link href="resources/css/common.css" rel="stylesheet">
-	<link href="resources/css/normalize.css" rel="stylesheet">
-	<script src="resources/js/jquery-latest.js"></script>
- 
-
+	<link href="<%=request.getContextPath() %>/resources/css/common.css" rel="stylesheet">
+	<link href="<%=request.getContextPath() %>/resources/css/normalize.css" rel="stylesheet">
+	<script src="<%=request.getContextPath() %>/resources/js/jquery-latest.js"></script>
     <style>
-         .agree{
+.agree{
  clear:both;
  width:1200px;
  margin:0 auto;
@@ -69,7 +69,7 @@ resize: none;
     </style>
 </head>
 <body>
-<%@ include file="../include/header.jsp" %>  
+<%@  include file="../include/header.jsp" %>
 
     <div id="ct">
         <div class="agree">
@@ -423,7 +423,7 @@ resize: none;
                      </li>
                  </ul>
                  <ul class="footBtwrap clearfix">
-                     <li><button onclick="location.href='index.jsp'" class="fpmgBt1">취소</button></li>
+                     <li><button onclick="location.href='home.jsp'" class="fpmgBt1">취소</button></li>
                      <li><button onclick="fnc1()" class="fpmgBt2">회원가입</button></li>
                  </ul>
              </div>
@@ -433,7 +433,7 @@ resize: none;
                  var ck1 = document.getElementById("ck1");
                  var ck2 = document.getElementById("ck2");
                  if(ck1.checked && ck2.checked) {
-                     location.href = "join.html";
+                     location.href = "joinForm.do";
                      return false;
                  } else {
                      alert("약관에 동의하지 않으셨습니다.");
@@ -458,6 +458,6 @@ resize: none;
          </div>
     </div>
 
-<%@ include file="../include/footer.jsp" %>          
+<%@  include file="../include/footer.jsp" %>   
 </body>
 </html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<!--  namespace, id 중복x -->
+<mapper namespace="databank">
+	<!-- 자료실 목록 불러오기 -->
+	<select id="dataList" resultType="com.okhospital.dto.DatabankDTO" >
+		select * from "databank"
+	</select>
+	
+	<!--  자료 상세보기 -->
+	<select id="dataRead" resultType="com.okhospital.dto.DatabankDTO" >
+		select * from "databank" where rno = #{rno }
+	</select>
+	
+	<!--  자료실 글 쓰기 -->
+	<select id="dataWrite">
+		insert into "databank"(rno, rtitle, rcontent, rposter, rfilename, rgedate)
+		values((select nvl(max(rno)+1, 1)from rfRoom), #{rtitle}, #{rcontent},
+		#{rposter}, #{rfilename}, sysdate)
+	</select>
+	
+	<!-- 자료실 글 수정 -->
+	<select id="dataUpdate">
+		update "databank" set rtitle = #{rtitle}, rcontent = #{rcontent},
+		rposter = #{rposter}, rfilename = #{rfilename} where rno = #{rno}
+		
+	</select>
+	
+	<!-- 자료실 글 삭제 -->
+	<select id="dataDelete">
+		delete from "databank" where rno = #{rno}
+	</select>
+</mapper>

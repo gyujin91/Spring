@@ -14,7 +14,8 @@
 	<annotation-driven />
 
 	<!-- /resources(이미지,동영상,아이콘,한글문서,.... directory -->
- 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/resources/**" location="/resources/" />
+	
 	
 	<!-- 뷰 리졸버 : /WEB-INF/views(jsp파일들)이 있는 directory 설정  및 접두사/접미사 모두 설정-->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -23,9 +24,25 @@
 	</beans:bean>
 	<!-- 서블릿에서 home을 호출하면, /WEB-INF/views/home.jsp가 실행되게 된다.  -->
 	
-	<!-- views 파일안에 새로운 폴더를 만들어서 이미지나 jsp파일을 사용할 때 -->
+	<!-- 스프링 멀티파트 리졸버  -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760" /> <!-- 10mb 제한 -->
+	</beans:bean>
 	
+	<!-- 업로드된 파일의 저장 위치 지정 -->
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="D:\lgj\jsp-test\web04\src\main\webapp\resources\upload"></beans:constructor-arg>
+	</beans:bean>
+	
+	
+	<!-- views 파일안에 새로운 폴더를 만들어서 이미지나 jsp파일을 사용할 때 -->
+	<resources mapping="/include/**" location="/WEB-INF/views/include/"  />
+	<resources mapping="/board/**" location="/WEB-INF/views/board/"  />
+	<resources mapping="/member/**" location="/WEB-INF/views/member/"  />
+	<resources mapping="/databank/**" location="/WEB-INF/views/databank/"  />
+	
+	<!--  스프링에서 관리하는 bean의 기본 디렉토리 -->
+	<!-- 컴포넌트 스캔 : 해당 패키지 아래에 있는 컴포넌트들을 검색해 빈 객체로 등록 해준다 -->
 	<!--  홈이 있는 메인 패키지를 설정 -->
 	<context:component-scan base-package="com.okhospital.*" />
-	
 </beans:beans>

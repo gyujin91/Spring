@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path1" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -17,7 +20,7 @@
     <meta property="og:title" content="제목">
     <meta property="og:description" content="설명">
     <meta property="og:image" content="로고주소">
-	<title>메인 페이지</title>
+	<title></title>
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/xpressengine/xeicon@2.3.1/xeicon.min.css">
 	<link href="<%=request.getContextPath() %>/resources/css/common.css" rel="stylesheet">
 	<link href="<%=request.getContextPath() %>/resources/css/normalize.css" rel="stylesheet">
@@ -115,7 +118,7 @@
     <%@ include file="../include/header.jsp" %>
 
     <div id="ct">
-        <div class="page_warp">
+        <div class="page_wrap">
             <div class="visual" style="background:url(/resources/img/top_visual.jpg);">
                 <div class="tit_box">
                     <h3>News</h3>
@@ -147,140 +150,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="even">
-                                <td class="td_num2">11</td>
-                                <td class="td_subject" style="padding-left:0px">
+                        	<c:forEach items="${boardList }" var="board">
+                        		<tr class="even">
+                        			 <td class="td_num2">${board.seq }</td>
+                                	<td class="td_subject" style="padding-left:0px">
                                     <div class="bo_tit">
-                                        <a href="">얼굴 동안(童顏) 만들어주는 시술에 ‘필러’ 지고 ‘에뜨레벨’ 뜬다 </a>
+                                        <a href="${path1 }/member/read.do">${board.title } </a>
                                     </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">216</td>
-                                <td class="td_datetime">03-29</td>
-                            </tr>
-
-                            <tr class="even">
-                                <td class="td_num2">10</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="">"기미·주근깨 치료, 맞춤치료 중요"</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">340</td>
-                                <td class="td_datetime">03-17</td>
-                            </tr>
-
-                            <tr class="even">
-                                <td class="td_num2">9</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="">피부볼륨, 탄력이 고민이라면?</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">593</td>
-                                <td class="td_datetime">01-27</td>
-                            </tr>
-
-                            <tr class="">
-                                <td class="td_num2">8</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="">"리프팅 시술 종류 다양해져…정확한 진단 중요"</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">726</td>
-                                <td class="td_datetime">01-03</td>
-                            </tr>
-
-                            <tr class="even">
-                                <td class="td_num2">7</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="">"수험생 여드름 고민, 흉터까지 고려한 치료 필요"</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">865</td>
-                                <td class="td_datetime">12-14</td>
-                            </tr>
-
-                            <tr class="even">
-                                <td class="td_num2">6</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="">"여름 내 지친 피부에 생기를 더해주는 레이저토닝"</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">934</td>
-                                <td class="td_datetime">10-21</td>
-                            </tr>
-
-                            <tr class="even">
-                                <td class="td_num2">5</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="">동안 이미지 얻으려면 피부 상태 중요</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">1016</td>
-                                <td class="td_datetime">08-25</td>
-                            </tr>
-
-                            <tr class="even">
-                                <td class="td_num2">4</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="">여드름치료, 재발 낮추려면 전문적인 케어 중요해</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">940</td>
-                                <td class="td_datetime">07-19</td>
-                            </tr>
-
-                            <tr class=" even">
-                                <td class="td_num2">3</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="">[SR건강칼럼] 여드름 치료, 근본적인 원인 해결이 중요</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">578</td>
-                                <td class="td_datetime">05-17</td>
-                            </tr>
-
-                            <tr class="even">
-                                <td class="td_num2">2</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="23">[SR건강칼럼]-동안피부완성, 레필레오 스킨 부스터로 해결</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">530</td>
-                                <td class="td_datetime">05-11</td>
-                            </tr>
-
-                            <tr class=" even">
-                                <td class="td_num2">1</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="22">[조세일보]-피부·안티에이징 시술 전문 연세디에이지의원 오픈</a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
-                                <td class="td_num">512</td>
-                                <td class="td_datetime">05-11</td>
+                                	</td>
+                               	 	<td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
+                                	<td class="td_num">${board.visited }</td>
+                                	<fmt:formatDate value="${board.regdate }" pattern="M월 dd일" var="regdate"/>
+                                		<td class="td_datetime">${regdate }</td>
+                                	
+                        		</tr>
+                        	</c:forEach>                        
+                            <tr>                          
+                            	<td>
+                            		<a href="${path1 }/board/writeForm.do">글 등록</a>
+                            	</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                
+                
+                          
             </div>
         </div>
     </div>

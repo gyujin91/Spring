@@ -11,9 +11,9 @@ import com.okhospital.dao.BoardDAO;
 import com.okhospital.dto.BoardDTO;
 
 @Service
-public class BoardServiceImpl implements BoardService{
-
-	// 해당 dao 객체 주입
+public class BoardServiceImpl implements BoardService {
+	
+	// 다오를 호출해서 써먹을 수 있다.
 	@Autowired
 	BoardDAO boardDao;
 	
@@ -28,19 +28,21 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public void boardWrite(BoardDTO dto) throws Exception {	
+	public void boardWrite(BoardDTO dto) throws Exception {
 		boardDao.boardWrite(dto);
+		
 	}
 
 	@Override
 	public void boardUpdate(BoardDTO dto) throws Exception {
 		boardDao.boardUpdate(dto);
+		
 	}
 
 	@Override
 	public void boardDelete(int seq) throws Exception {
 		boardDao.boardDelete(seq);
+		
 	}
-
 	
 }

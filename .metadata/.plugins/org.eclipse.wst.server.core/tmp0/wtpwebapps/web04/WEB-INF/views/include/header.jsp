@@ -8,22 +8,18 @@
     </div>
     <div class="util_menu">
         <ul>
-            <li><a href="{path1 }/member/join.do">회원가입</a></li>
-            <li><a href="{path1 }/member/login.do">로그인</a></li>
+            <li><a href="${path1 }/member/agreement.do">회원가입</a></li>
+            <li><a href="${path1 }/member/loginForm.do">로그인</a></li>
         </ul>
 
     </div>
     <div class="header_bottom" >
-        <div class="logo">
-        	<a href="${path1 }/">
-        		<img src="resources/img/logo.png" alt="로고">
-        	</a>
-        </div>
+        <div class="logo"><img src="resources/img/logo.png" alt="로고"></div>
         <ul>
             <a href="#">De:AGE ABOUT</a>
             <div class="submenu_wrap">
                 <div class="submenu">
-                	<li><a href="../menu/sub1.jsp#page1">De:AGE about</a></li>
+                	<li><a href="${path }/memu/sbu1">De:AGE about</a></li>
                 	<li><a href="sub1#2">Dr. Yoon. hyo geun</a></li>
                 	<li><a href="sub1#3">Location(Map)</a></li>
                 </div>
@@ -83,7 +79,12 @@
             <div class="submenu_wrap">
                 <div class="submenu">
                 <li><a href="${path1 }/board/list.do">Event·Notice</a></li>
-                <li><a href="sub1#2">Kakaotalk</a></li>
+                <c:if test="${nickname == 'admin' }">
+                <li><a href="${path1 }/databank/writeForm.do">자료등록</a></li>
+                </c:if>
+                <c:if test="${nickname != 'admin' }">
+                <li><a href="${path1 }/databank/writeForm.do">Kakaotalk</a></li>
+                </c:if>
                 <li><a href="sub1#3">Before&After</a></li>
                 </div>
             </div>

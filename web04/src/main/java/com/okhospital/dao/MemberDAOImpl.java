@@ -11,41 +11,46 @@ import com.okhospital.dto.MemberDTO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
-
+	
 	// 객체 주입
 	@Autowired
 	SqlSession sqlSession;
 	
 	@Override
-	public List<MemberDTO> memberList() throws Exception {	// 회원 목록 보기
+	// 회원 목록 보기
+	public List<MemberDTO> memberList() throws Exception {
 		return sqlSession.selectList("member.memberList");
 	}
 
 	@Override
-	public MemberDTO memberRead(String userid) throws Exception {	// 회원 정보 상세 보기
+	// 회원 상세 보기
+	public MemberDTO memberRead(String userid) throws Exception {
 		return sqlSession.selectOne("member.memberRead", userid);
 	}
 
 	@Override
-	public void join(MemberDTO dto) throws Exception {	// 회원 가입
+	// 회원 가입
+	public void join(MemberDTO dto) throws Exception {
 		sqlSession.insert("member.join", dto);
-		
 	}
 
 	@Override
-	public void memberUpdate(MemberDTO dto) throws Exception {	// 회원 정보 수정
+	// 회원 정보 수정
+	public void memberUpdate(MemberDTO dto) throws Exception {
 		sqlSession.update("member.memberUpdate", dto);
 	}
 
 	@Override
-	public void memberDelete(String userid) throws Exception {	// 회원 탈퇴
+	// 회원 탈퇴
+	public void memberDelte(String userid) throws Exception {
 		sqlSession.delete("member.memberDelete", userid);
 	}
 
 	@Override
-	public MemberDTO login(String userid, String userpw) throws Exception {	// 로그인
-		HashMap<String, String> map = new HashMap<>();
+	// 로그인
+	public MemberDTO login(String userid, String userpw) throws Exception {
 		MemberDTO dto = new MemberDTO();
+		HashMap<String, String> map = new HashMap<>();
 		map.put("userid", userid);
 		map.put("userpw", userpw);
 		dto = sqlSession.selectOne("member.login", map);
@@ -53,9 +58,9 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public int idCheck(String userid) throws Exception {	// 아이디 중복 체크
+	// 아이디 중복 체크
+	public int idCheck(String userid) throws Exception {
 		return sqlSession.selectOne("member.idCheck", userid);
 	}
-	
 	
 }
