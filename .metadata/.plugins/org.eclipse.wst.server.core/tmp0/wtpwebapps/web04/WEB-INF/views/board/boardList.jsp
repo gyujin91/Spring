@@ -155,14 +155,13 @@
                         			 <td class="td_num2">${board.seq }</td>
                                 	<td class="td_subject" style="padding-left:0px">
                                     <div class="bo_tit">
-                                        <a href="${path1 }/member/read.do">${board.title } </a>
+                                        <a href="${path1 }/board/read.do?seq=${board.seq }">${board.title } </a>
                                     </div>
                                 	</td>
                                	 	<td class="td_name sv_use"><span class="sv_member">연세디에이지</span></td>
                                 	<td class="td_num">${board.visited }</td>
-                                	<fmt:formatDate value="${board.regdate }" pattern="M월 dd일" var="regdate"/>
-                                		<td class="td_datetime">${regdate }</td>
-                                	
+                                	<fmt:formatDate value="${board.regdate }" pattern="YYYY년 M월 dd일" var="regdate" />
+                                	<td class="td_datetime">${regdate }</td>               
                         		</tr>
                         	</c:forEach>                        
                             <tr>                          

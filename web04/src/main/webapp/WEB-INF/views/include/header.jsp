@@ -8,10 +8,24 @@
     </div>
     <div class="util_menu">
         <ul>
+        <!--로그인 전 -->
+        <c:if test="${empty userid }">
             <li><a href="${path1 }/member/agreement.do">회원가입</a></li>
             <li><a href="${path1 }/member/loginForm.do">로그인</a></li>
-        </ul>
-
+        
+        </c:if>
+        <!-- 로그인 후 -->
+        <c:if test="${!empty userid }">
+        	<li><a href="${path1 }/member/read.do">마이페이지</a></li>
+            <li><a href="${path1 }/member/logout.do">로그아웃</a></li>
+        </c:if>
+        <!-- 로그인이 관리자 일 경우 -->
+        <c:if test="${userid == 'admin' }">
+        	<li><a href="${path1 }/member/List.do">회원 목록</a></li>
+        	<li><a href="${path1 }/board/list.do">게시판 목록</a></li>
+        	<li><a href="${path1 }/databank/list.do">자료실 목록</a></li>
+        </c:if>
+		</ul>
     </div>
     <div class="header_bottom" >
         <div class="logo"><img src="resources/img/logo.png" alt="로고"></div>

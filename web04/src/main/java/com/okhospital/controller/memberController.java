@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,14 @@ public class memberController {
 	// 객체 주입
 	@Autowired
 	MemberService memberService;
+	
+	// 세션처리를 위한 객체 주입
+	@Autowired
+	HttpSession session;
+	
+	// 비밀번호 암호화를 위한 객체 주입
+	@Autowired
+	BCryptPasswordEncoder pwdEncoder;
 	
 	// 회원 목록 보기
 	@RequestMapping("list.do")
@@ -59,9 +68,10 @@ public class memberController {
 	// 회원 가입 처리
 	@RequestMapping(value = "join.do", method = RequestMethod.POST)
 	public String join(MemberDTO dto, Model model) throws Exception {
-		/*
-		 * String userpw = dto.getUserpw(); String pwd = pwdEncoder.encode(userpw);
-		 */
+		// 패스워드 암호화
+		String userpw = dto.getUserpw();
+		String pwd = pwdEncoder.encode(userpw);
+		dto.setUserpw(pwd);
 		memberService.join(dto);
 		return "redirect:login.do";
 	}
@@ -87,7 +97,7 @@ public class memberController {
 	
 	// 로그인
 	@RequestMapping(value = "login.do", method = RequestMethod.GET)
-	public String login(@RequestParam String userid, String userpw, HttpSession session, Model model, RedirectAttributes rttr) throws Exception {
+	public String login(@RequestParam String userid, String userpw, Model model, RedirectAttributes rttr) throws Exception {
 		MemberDTO dto = memberService.login(userid, userpw);
 		if(dto == null) {
 			// 로그인 실패
@@ -102,6 +112,7 @@ public class memberController {
 			return "redirect:/";
 		}
 	}
+	
 	// 아이디 중복 체크
 	@RequestMapping("idCheck.do")
 	public int idCheck(@RequestParam String userid) throws Exception {
@@ -110,9 +121,11 @@ public class memberController {
 	}
 	
 	// 로그 아웃
-	@RequestMapping("logOut.do")
+	@RequestMapping("logout.do")
 	public String logOut(HttpSession session) throws Exception {
-		session.invalidate();
+		if(session != null) {
+			session.invalidate();
+		}
 		// 홈으로 가라
 		return "redirect:/";
 	}
